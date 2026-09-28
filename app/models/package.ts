@@ -1,0 +1,1 @@
+type Package = { id: number; course: Course; duration: string; days_in_week: string; price: number; };
