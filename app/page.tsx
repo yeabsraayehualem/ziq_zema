@@ -1,4 +1,3 @@
-import Image from "next/image";
 import NavBar from "./components/shared/navbar";
 import HeroSection from "./components/public_profile/hero";
 import Footer from "./components/shared/footer";
@@ -9,20 +8,21 @@ import ScheduleSection from "./components/public_profile/weekly_Schedule";
 import Testimonilas from "./components/public_profile/testimonials";
 import EnrollmentSection from "./components/public_profile/enrolement";
 import ContactSection from "./components/public_profile/contact_us";
+import { getPublicCatalog } from "./lib/public-catalog";
 
-export default function Home() {
+export default async function Home() {
+  const catalog = await getPublicCatalog();
+
   return <>
     <NavBar />
     <HeroSection />
     <AboutSection />
-    <InstrumentsSection />    
-    <CoursesSection />
-    <ScheduleSection />  
-
+    <InstrumentsSection />
+    <CoursesSection courses={catalog.courses} packages={catalog.packages} />
+    <ScheduleSection schedules={catalog.schedules} />
     <Testimonilas />
-
-    <EnrollmentSection />
+    <EnrollmentSection courses={catalog.courses} packages={catalog.packages} />
     <ContactSection />
-    <Footer/>
-  </>
+    <Footer />
+  </>;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ export default function NavBar() {
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
 
         {/* Logo */}
-        <a
+        <Link
           href="/"
           className="flex items-center space-x-3 rtl:space-x-reverse"
         >
@@ -26,7 +27,7 @@ export default function NavBar() {
               የዝማሬ መሳሪያዎች ማሰልጠኛ ትምህርት ቤት
             </span>
           </div>
-        </a>
+        </Link>
 
         {/* Mobile button */}
         <button
@@ -36,14 +37,13 @@ export default function NavBar() {
           aria-label="Toggle navigation"
           aria-expanded={isOpen}
         >
-          
+
         </button>
 
-   
+
         <div
-          className={`${
-            isOpen ? "block" : "hidden"
-          } w-full md:block md:w-auto`}
+          className={`${isOpen ? "block" : "hidden"
+            } w-full md:block md:w-auto`}
         >
           <ul className="mt-4 flex flex-col items-center gap-2 md:mt-0 md:flex-row md:gap-6">
             <li>
@@ -79,6 +79,11 @@ export default function NavBar() {
             <li>
               <a className="nav-link btn-enroll-nav" href="#enroll">
                 ይመዝገቡ
+              </a>
+            </li>
+            <li>
+              <a className="nav-link" href="/admin/login">
+                Login
               </a>
             </li>
           </ul>
