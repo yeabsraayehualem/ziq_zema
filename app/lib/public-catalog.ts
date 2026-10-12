@@ -28,9 +28,11 @@ export type PublicCatalog = {
   courses: Course[];
   packages: Package[];
   schedules: Schedule[];
+  instruments: number,
+  students: number,
 };
 
-const emptyCatalog: PublicCatalog = { courses: [], packages: [], schedules: [] };
+const emptyCatalog: PublicCatalog = { courses: [], packages: [], schedules: [],instruments:0,students:0 };
 
 export async function getPublicCatalog(): Promise<PublicCatalog> {
   const apiOrigin = (process.env.DJANGO_API_ORIGIN ?? 'http://127.0.0.1:8000').replace(/\/+$/, '');
@@ -44,6 +46,8 @@ export async function getPublicCatalog(): Promise<PublicCatalog> {
       courses: Array.isArray(catalog.courses) ? catalog.courses : [],
       packages: Array.isArray(catalog.packages) ? catalog.packages : [],
       schedules: Array.isArray(catalog.schedules) ? catalog.schedules : [],
+      instruments: catalog.instruments || 0,
+      students: catalog.students || 0
     };
   } catch (error) {
     console.error('Unable to load the public course catalog.', error);

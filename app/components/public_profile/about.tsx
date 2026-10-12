@@ -1,5 +1,8 @@
+'use client'
+import { useEffect, useState } from "react";
 
-export default function AboutSection() {
+export default function AboutSection({packages,students, instruments}) {
+  
   return (
     <section className="about-section" id="about">
       <div className="relative z-[2] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -48,18 +51,18 @@ export default function AboutSection() {
           <div data-aos="fade-left" data-aos-delay="200">
             <div className="about-stats">
               <div className="stat-box">
-                <div className="stat-number">5+</div>
+                <div className="stat-number">{ instruments }</div>
                 <div className="stat-label">Instruments</div>
               </div>
 
               <div className="stat-box">
-                <div className="stat-number">200+</div>
+                <div className="stat-number">{ students }</div>
                 <div className="stat-label">Students</div>
               </div>
 
               <div className="stat-box">
-                <div className="stat-number">10+</div>
-                <div className="stat-label">Courses</div>
+                <div className="stat-number">{ packages }</div>
+                <div className="stat-label">Packages</div>
               </div>
 
               <div className="stat-box"></div>

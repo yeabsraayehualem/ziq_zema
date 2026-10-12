@@ -16,7 +16,7 @@ export default async function Home() {
   return <>
     <NavBar />
     <HeroSection />
-    <AboutSection />
+    <AboutSection students={catalog.students} instruments={catalog.instruments} packages={ catalog.packages.length } />
     <InstrumentsSection />
     <CoursesSection courses={catalog.courses} packages={catalog.packages} />
     <ScheduleSection schedules={catalog.schedules} />

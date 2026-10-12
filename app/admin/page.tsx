@@ -16,7 +16,7 @@ type Dashboard = {
 export default function DashboardPage() {
   const [data, setData] = useState<Dashboard | null>(null);
   const [error, setError] = useState("");
-  useEffect(() => { api<Dashboard>("/dashboard/").then(setData).catch((e) => setError(e.message)); }, []);
+  useEffect(() => { api<Dashboard>("/learning/dashboard/").then(setData).catch((e) => setError(e.message)); }, []);
   if (error) return <div className="admin-notice">{error}</div>;
   if (!data) return <div className="admin-empty">Loading dashboard…</div>;
   const cards = [
